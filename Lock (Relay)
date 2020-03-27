@@ -1,0 +1,23 @@
+//Define
+
+#define RelayOut 11
+
+void setup() {
+  // Relaypin in Digital#11 
+  pinMode(RelayOut,OUTPUT);
+  
+}
+
+void loop() {
+  // If locked (Boolean == 0)
+  if (Lock == 0){
+    digitalWrite(RelayOut,LOW);
+  }
+  
+  // If opened (Boolean == 1)
+  if (Lock == 0){
+    digitalWrite(RelayOut,HIGH);
+  }
+  
+  delay(100);
+}

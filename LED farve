@@ -1,0 +1,47 @@
+#include <ESP8266WiFi.h>
+
+//Først kobles hver pin til en farve.
+int red = D0;
+int green = D1;
+int blue = D2;
+
+//Denne funktion initialiserer pinModes, hvilket sætter hver pin til at være et output.
+void init_availability() {
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+}
+
+// Funktionen der får LED'en til at skifte farve afhængig af input. (boolean som input)
+void availability (bool optaget) {
+  if (optaget == 0) {
+    digitalWrite(red, LOW);
+    digitalWrite(green, HIGH);
+    digitalWrite(blue, LOW);
+  }
+  else if (optaget == 1) {
+    digitalWrite(red, HIGH);
+    digitalWrite(green, LOW);
+    digitalWrite(blue, LOW);
+  }
+}
+
+// Test af funktionerne
+
+bool optaget;
+
+void setup() {
+  init_availability();
+}
+
+void loop() {
+
+  optaget = 0;
+  availability(optaget);
+  delay(3000);
+
+  optaget = 1;
+  availability(optaget);
+  delay(3000);
+
+}

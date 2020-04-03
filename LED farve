@@ -1,5 +1,7 @@
 #include <ESP8266WiFi.h>
 
+Bøøø
+
 //Først kobles hver pin til en farve.
 int red = D0;
 int green = D1;

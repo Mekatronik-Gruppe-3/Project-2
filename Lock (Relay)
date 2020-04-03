@@ -1,23 +1,19 @@
-//Define
-
-#define RelayOut 11
+int Relay = 4;    
 
 void setup() {
-  // Relaypin in Digital#11 
-  pinMode(RelayOut,OUTPUT);
-  
-}
-
+  Serial.begin(57600);   
+  pinMode(6, INPUT_PULLUP);         //Set Pin6 as output    
+  pinMode(Relay, OUTPUT);     
+} 
 void loop() {
-  // If locked (Boolean == 0)
-  if (Lock == 0){
-    digitalWrite(RelayOut,LOW);
-  }
-  
-  // If opened (Boolean == 1)
-  if (Lock == 0){
-    digitalWrite(RelayOut,HIGH);
-  }
-  
-  delay(100);
-}
+  int singal=digitalRead(6);
+  Serial.println(singal);           
+  digitalWrite(Relay, HIGH);           
+  delay(2000);
+  digitalWrite(Relay, LOW);             
+  delay(2000);
+
+} 
+
+//Expected Results: The electric solenoid lock is unlocking in every 4s. In Arduino serial monitor, the output is 0 when unlocked and 1 when locked.
+
